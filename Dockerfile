@@ -23,8 +23,8 @@ COPY . /app
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
-# Install uWSGI
-RUN pip install uwsgi
+# # Install uWSGI
+# RUN pip install uwsgi
 
 # URL under which static (not modified by Python) files will be requested
 # They will be served by Nginx directly, without being handled by uWSGI
