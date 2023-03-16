@@ -1,0 +1,4 @@
+flask==2.2.2
+psutil==5.8.0
+streamlink==2.4.0
+ffmpeg-python==0.2.0
