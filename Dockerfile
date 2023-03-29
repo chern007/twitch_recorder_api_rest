@@ -1,3 +1,7 @@
+# docker build -t twitch_recorder_image .
+# docker run -d --name twitch_recorder -p 8080:8000 --restart unless-stopped -v $(pwd)/WebApp:/WebApp twitch_recorder_image
+
+
 FROM python:3.11.2
 LABEL maintainer="Jose Arturo Fernandez <jarfernandez@aprenderdevops.com>"
 
