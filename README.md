@@ -1,9 +1,18 @@
-# docker-nginx-flask-demo
+# docker-uwsgi
+Aplicación web desarrollada en [Python](https://www.python.org/), en este caso con el framework [Flask](http://flask.pocoo.org/), dentro de un contenedor [Docker](https://www.docker.com/) con el servidor [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/).
 
-Example of Python/Flask webapp running behing nginx+tls in Docker Compose
+Para construir la imagen, ejecutar el siguiente comando:
+```
+$ docker build -t aprenderdevops/uwsgi .
+```
 
-Launch `run.sh` and open [https://localhost](https://localhost) or call `curl --insecure https://localhost`
+Para arrancar el contenedor, ejecutar el siguiente comando:
+```
+$ docker run -d -p 8080:8000 --restart unless-stopped -v $(pwd)/WebApp:/WebApp aprenderdevops/uwsgi
+```
+
+Acceder a la aplicación con un navegador a http://localhost:8080
 
 ---
 
-You can find the explanation [in my article on Medium](https://medium.com/geekculture/webapp-nginx-and-ssl-in-docker-compose-6d02bdbe8fa0)
+Tags: devops, docker, flask, python, uwsgi
