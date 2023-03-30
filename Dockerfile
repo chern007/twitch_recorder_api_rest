@@ -1,5 +1,6 @@
 # docker build -t twitch_recorder_image .
-# docker run -d --name twitch_recorder -p 8080:8000 --restart unless-stopped -v $(pwd)/WebApp:/WebApp twitch_recorder_image
+
+# (OLD) docker run -d --name twitch_recorder -p 8080:8000 --restart unless-stopped -v $(pwd)/WebApp:/WebApp twitch_recorder_image
 
 # docker run -d --name twitch_recorder -p 8080:8000 --restart unless-stopped -v /media/pi/80f2bf0f-25c4-47e7-8a27-3d19ef6b397e/00.\ TORRENTS:/WebApp/output twitch_recorder_image
 
