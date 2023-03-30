@@ -3,6 +3,8 @@
 
 # docker run -d --name twitch_recorder -p 8080:8000 --restart unless-stopped -v /media/pi/80f2bf0f-25c4-47e7-8a27-3d19ef6b397e/00.\ TORRENTS:/WebApp/output twitch_recorder_image
 
+# Para copiar los archivos desde el servidor linux:
+# scp pi@192.168.1.171:"/media/pi/80f2bf0f-25c4-47e7-8a27-3d19ef6b397e/00.' 'TORRENTS/viviendoenlacalle_30-03-2023.mp3" .
 
 FROM python:3.10
 LABEL maintainer="Carlos Hernández Crespo"
