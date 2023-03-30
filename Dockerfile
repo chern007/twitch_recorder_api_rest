@@ -1,12 +1,18 @@
 # docker build -t twitch_recorder_image .
 # docker run -d --name twitch_recorder -p 8080:8000 --restart unless-stopped -v $(pwd)/WebApp:/WebApp twitch_recorder_image
 
+# docker run -d --name twitch_recorder -p 8080:8000 --restart unless-stopped -v /media/pi/80f2bf0f-25c4-47e7-8a27-3d19ef6b397e/00.\ TORRENTS:/WebApp/output twitch_recorder_image
+
 
 FROM python:3.11.2
-LABEL maintainer="Jose Arturo Fernandez <jarfernandez@aprenderdevops.com>"
+LABEL maintainer="Carlos Hernández Crespo"
 
 # Se instala uWSGI y todas las librerias que necesita la aplicacion
 COPY WebApp/requirements.txt requirements.txt
+
+# Instalamos el programa ffmpeg
+RUN apt-get update && apt-get install -y ffmpeg
+
 RUN pip install uwsgi && pip install -r requirements.txt
 
 # Puerto HTTP por defecto para uWSGI
