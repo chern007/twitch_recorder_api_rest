@@ -29,8 +29,8 @@ def grabar():
         duracion = 9000 # PONEMOS COMO TOPE 2 HORAS DE GRABACIÓN DEL STREAM
         # Crear objeto de streamlink
         streams = streamlink.streams("https://www.twitch.tv/" + canal_twitch)
-	if not streams:
-	    return f"El canal de twitch {canal_twitch} no está en directo."
+        if not streams:
+            return f"El canal de twitch {canal_twitch} no está en directo."
         # Obtener la URL de la transmisión
         stream_url = streams[calidad].url
 
