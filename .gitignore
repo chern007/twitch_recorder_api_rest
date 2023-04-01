@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+00. ngrok\script.sh
+00. ngrok\sender.py
