@@ -37,7 +37,7 @@ COPY WebApp /WebApp
 COPY uwsgi.ini uwsgi.ini
 
 # Se copia el script para matar los procesos ffmpeg zombie
-COPY uwsgi.ini uwsgi.ini
+COPY kill_ffmpeg.sh kill_ffmpeg.sh
 
 # Se establece el directorio de trabajo
 WORKDIR /WebApp
