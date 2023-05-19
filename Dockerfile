@@ -2,7 +2,7 @@
 
 # (OLD) docker run -d --name twitch_recorder -p 8080:8000 --restart unless-stopped -v $(pwd)/WebApp:/WebApp twitch_recorder_image
 
-# docker run -d --name twitch_recorder -p 8080:8000 --restart unless-stopped -v /media/pi/80f2bf0f-25c4-47e7-8a27-3d19ef6b397e/00.\ TORRENTS:/WebApp/output twitch_recorder_image
+# docker run -d --name twitch_recorder -p 8080:8000 --restart unless-stopped -v /media/pi/80f2bf0f-25c4-47e7-8a27-3d19ef6b397e/00.\ TORRENTS:/output -v /home/pi/Desktop/Proyectos/twitch_recorder_api_rest/WebApp:/WebApp twitch_recorder_image
 
 # Para copiar los archivos desde el servidor linux:
 # scp pi@192.168.1.171:"/media/pi/80f2bf0f-25c4-47e7-8a27-3d19ef6b397e/00.' 'TORRENTS/viviendoenlacalle_30-03-2023.mp3" .
@@ -26,14 +26,17 @@ ENV UWSGI_HTTP_PORT=$UWSGI_HTTP_PORT
 ARG UWSGI_APP=webapp
 ENV UWSGI_APP=$UWSGI_APP
 
-# Se crea un usuario para arrancar uWSGI
-RUN useradd -ms /bin/bash admin
-USER admin
+# # Se crea un usuario para arrancar uWSGI
+# RUN useradd -ms /bin/bash admin
+# USER admin
 
 # Se copia el contenido de la aplicacion
 COPY WebApp /WebApp
 
 # Se copia el fichero con la configuración de uWSGI
+COPY uwsgi.ini uwsgi.ini
+
+# Se copia el script para matar los procesos ffmpeg zombie
 COPY uwsgi.ini uwsgi.ini
 
 # Se establece el directorio de trabajo

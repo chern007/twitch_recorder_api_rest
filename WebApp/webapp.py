@@ -43,7 +43,7 @@ def grabar():
         fecha_actual = datetime.datetime.now()
         fecha_formateada = fecha_actual.strftime("%d-%m-%Y")
         # Crear objeto ffmpeg para archivo de salida
-        output_file = "output/{}_{}.mp3".format(canal_twitch,fecha_formateada)
+        output_file = "../output/{}_{}.mp3".format(canal_twitch,fecha_formateada)
         if os.path.isfile(output_file):
             os.remove(output_file)
 
